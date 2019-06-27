@@ -24,7 +24,7 @@ CREATE TABLE `order_t` (
   `chan_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '渠道编号',
   `product_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '产品编号',
   `chan_user_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '渠道用户编号',
-  `order_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '类型：APPLY：申购，REDEEN：赎回',
+  `order_type` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '类型：APPLY：申购，REDEEM：赎回',
   `order_status` varchar(20) COLLATE utf8_unicode_ci NOT NULL COMMENT '状态，INIT：初始化，PROCESS：处理中，SUCCESS：成功，FAIL：失败',
   `outer_order_id` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT '外部订单编号',
   `amount` decimal(15,3) NOT NULL COMMENT '金额',
