@@ -6,11 +6,17 @@ import com.glw.manager.repositories.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import javax.persistence.criteria.*;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author : glw
@@ -80,7 +86,61 @@ public class ProductService {
         Assert.isTrue(BigDecimal.valueOf(product.getStepAmount().longValue()).compareTo(product.getStepAmount()) == 0, "投资步长需为整数");
     }
 
+    /**
+     * 查询单个产品
+     * @param id 产品编号
+     * @return 返还对应产品或者null
+     */
     public Product findOne(String id) {
-        return null;
+        Assert.notNull(id, "产品需要编号参数");
+        LOG.debug("查询单个产品, id={}", id);
+
+        Product product = productRepository.findOne(id);
+        LOG.debug("查询单个产品，结果={}", product);
+        return product;
+    }
+
+    /**
+     * 分页查询产品
+     * @param idList
+     * @param minRewardRate
+     * @param maxRewardRate
+     * @param statusList
+     * @param pageable
+     * @return
+     */
+    public Page<Product> query(List<String> idList, BigDecimal minRewardRate, BigDecimal maxRewardRate, List<String> statusList, Pageable pageable) {
+
+        LOG.debug("查询产品, idList={}, minRewardRate={}, maxRewardRate={}, statusList={}, pageable={}", idList, minRewardRate, maxRewardRate, statusList, pageable);
+        Specification<Product> specification = new Specification<Product>() {
+            @Override
+            public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) {
+                Expression<String> idCol = root.get("id");
+                Expression<BigDecimal> rewardRateCol = root.get("rewardRate");
+                Expression<String> statusCol = root.get("status");
+                List<Predicate> predicates = new ArrayList<>();
+                if (idList != null && idList.size() > 0) {
+                    predicates.add(idCol.in(idList));
+                }
+                // 收益率范围
+                if (BigDecimal.ZERO.compareTo(minRewardRate) < 0) {
+                    predicates.add(criteriaBuilder.ge(rewardRateCol, minRewardRate));
+                }
+                if (BigDecimal.ZERO.compareTo(minRewardRate) < 0) {
+                    predicates.add(criteriaBuilder.le(rewardRateCol, maxRewardRate));
+                }
+                // 状态
+                if (statusList != null && statusList.size() > 0) {
+                    predicates.add(statusCol.in(statusList));
+                }
+
+                criteriaQuery.where(predicates.toArray(new Predicate[0]));
+                return null;
+            }
+        };
+
+        Page<Product> page = productRepository.findAll(specification, pageable);
+        LOG.debug("查询产品, 结果：{}", page);
+        return page;
     }
 }
