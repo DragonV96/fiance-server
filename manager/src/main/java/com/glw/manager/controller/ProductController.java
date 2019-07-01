@@ -51,11 +51,11 @@ public class ProductController {
     public Page<Product> query(String ids, BigDecimal minRewardRate, BigDecimal maxRewardRate, String status, @RequestParam(defaultValue = "0") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
         LOG.info("查询产品，ids={}, minRewardRate={}, maxRewardRate={}, status={}, pageNum={}, pageSize={}", ids, minRewardRate, maxRewardRate, status, pageNum, pageSize);
         List<String> idList = null, statusList = null;
-        if (StringUtils.isEmpty(ids)) {
+        if (!StringUtils.isEmpty(ids)) {
             idList = Arrays.asList(ids.split(","));
         }
-        if (StringUtils.isEmpty(status)) {
-            statusList = Arrays.asList(ids.split(","));
+        if (!StringUtils.isEmpty(status)) {
+            statusList = Arrays.asList(status.split(","));
         }
 
         Pageable pageable = new PageRequest(pageNum, pageSize);

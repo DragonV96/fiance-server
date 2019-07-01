@@ -2,6 +2,7 @@ package com.glw.manager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
  * @author : glw
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description: 产品启动类
  */
 @SpringBootApplication
+@EntityScan(basePackages = {"com.glw.entity"})
 public class ManagerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ManagerApplication.class);

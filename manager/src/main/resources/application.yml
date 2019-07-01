@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/manager?use=root&password=&userUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/manager?user=root&password=&userUnicode=true&characterEncoding=UTF-8
   jpa:
     show-sql: true    # 打印sql语句
 

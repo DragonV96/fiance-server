@@ -52,15 +52,13 @@ public class ProductService {
     private void setDefault(Product product) {
         if (product.getCreateAt() == null) {
             product.setCreateAt(new Date());
-        } else if (product.getUpdateAt() == null) {
+        } if (product.getUpdateAt() == null) {
             product.setUpdateAt(new Date());
-        } else if (product.getStepAmount() == null) {
+        } if (product.getStepAmount() == null) {
             product.setStepAmount(BigDecimal.ZERO);
-        } else if (product.getUpdateAt() == null) {
-            product.setUpdateAt(new Date());
-        } else if (product.getLockTerm() == null) {
+        } if (product.getLockTerm() == null) {
             product.setLockTerm(0);
-        } else if (product.getStatus() == null) {
+        } if (product.getStatus() == null) {
             product.setStatus(ProductStatus.AUDITING.name());
         }
     }
@@ -73,7 +71,7 @@ public class ProductService {
         // 非空校验
         Assert.notNull(product.getId(), "产品编号不可为空");
         Assert.notNull(product.getName(), "产品名称不可为空");
-        Assert.notNull(product.getThresholdAMount(), "起投金额不可为空");
+        Assert.notNull(product.getThresholdAmount(), "起投金额不可为空");
         Assert.notNull(product.getStepAmount(), "投资步长不可为空");
         Assert.notNull(product.getLockTerm(), "锁定期不可为空");
         Assert.notNull(product.getRewardRate(), "收益率不可为空");
