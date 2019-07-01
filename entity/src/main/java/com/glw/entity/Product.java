@@ -21,7 +21,7 @@ public class Product {
      */
     private String status;
     // 起投金额
-    private BigDecimal thresholdAMount;
+    private BigDecimal thresholdAmount;
     // 投资步长
     private BigDecimal stepAmount;
     // 锁定期
@@ -58,12 +58,12 @@ public class Product {
         this.status = status;
     }
 
-    public BigDecimal getThresholdAMount() {
-        return thresholdAMount;
+    public BigDecimal getThresholdAmount() {
+        return thresholdAmount;
     }
 
-    public void setThresholdAMount(BigDecimal thresholdAMount) {
-        this.thresholdAMount = thresholdAMount;
+    public void setThresholdAmount(BigDecimal thresholdAmount) {
+        this.thresholdAmount = thresholdAmount;
     }
 
     public BigDecimal getStepAmount() {
@@ -136,7 +136,7 @@ public class Product {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", status='" + status + '\'' +
-                ", thresholdAMount=" + thresholdAMount +
+                ", thresholdAmount=" + thresholdAmount +
                 ", stepAmount=" + stepAmount +
                 ", lockTerm=" + lockTerm +
                 ", rewardRate=" + rewardRate +
