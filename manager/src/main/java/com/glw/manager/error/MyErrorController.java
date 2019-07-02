@@ -29,6 +29,11 @@ public class MyErrorController extends BasicErrorController {
         attrs.remove("error");
         attrs.remove("exception");
         attrs.remove("path");
+        String errorCode = (String) attrs.get("message");
+        ErrorEnum errorEnum = ErrorEnum.getByCode(errorCode);
+        attrs.put("message", errorEnum.getMessage());
+        attrs.put("code", errorEnum.getCode());
+        attrs.put("canRetry", errorEnum.isCanRetry());
         return attrs;
     }
 }
