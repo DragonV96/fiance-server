@@ -122,10 +122,10 @@ public class ProductService {
                     predicates.add(idCol.in(idList));
                 }
                 // 收益率范围
-                if (BigDecimal.ZERO.compareTo(minRewardRate) < 0) {
+                if (minRewardRate != null && BigDecimal.ZERO.compareTo(minRewardRate) < 0) {
                     predicates.add(criteriaBuilder.ge(rewardRateCol, minRewardRate));
                 }
-                if (BigDecimal.ZERO.compareTo(minRewardRate) < 0) {
+                if (minRewardRate != null && BigDecimal.ZERO.compareTo(minRewardRate) < 0) {
                     predicates.add(criteriaBuilder.le(rewardRateCol, maxRewardRate));
                 }
                 // 状态
