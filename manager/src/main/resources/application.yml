@@ -9,4 +9,9 @@ spring:
 
 server:
   port: 8080
-  context-path: /manager
+  servlet:
+    context-path: /manager
+
+swagger:
+  groupName: manager
+  basePackage: com.glw.manager.controller

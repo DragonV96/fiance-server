@@ -2,6 +2,9 @@ package com.glw.manager.controller;
 
 import com.glw.entity.Product;
 import com.glw.manager.service.ProductService;
+import com.glw.swagger.config.EnableMySwagger;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +25,8 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/products")
+@EnableMySwagger
+@Api(tags = "产品管理", description = "产品增删改查控制层")
 public class ProductController {
 
     private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
@@ -29,6 +34,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @ApiOperation(value = "创建产品", notes = "根据对应业务规则添加相应的产品")
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Product addProduct(@RequestBody Product product) {
         LOG.info("创建产品，参数：{}", product);
