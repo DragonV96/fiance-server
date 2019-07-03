@@ -35,11 +35,11 @@ public class ProductService {
 
     public Product addProduct(Product product) {
         LOG.debug("创建产品，参数：{}", product);
-        // 数据校验
-        checkProduct(product);
-
         // 设置默认值
         setDefault(product);
+
+        // 数据校验
+        checkProduct(product);
         Product result = productRepository.save(product);
 
         LOG.debug("创建产品，结果：{}", result);
