@@ -11,5 +11,11 @@
 
     <artifactId>saller</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.glw</groupId>
+            <artifactId>api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

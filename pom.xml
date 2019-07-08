@@ -87,5 +87,13 @@
             <artifactId>swagger-bootstrap-ui</artifactId>
             <version>1.8.8</version>
         </dependency>
+
+        <!-- jsonrpc4j -->
+        <dependency>
+            <groupId>com.github.briandilley.jsonrpc4j</groupId>
+            <artifactId>jsonrpc4j</artifactId>
+            <version>1.5.3</version>
+        </dependency>
+
     </dependencies>
 </project>
