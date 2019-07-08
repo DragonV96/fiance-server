@@ -16,7 +16,7 @@ public class SwaggerInfo {
 
     private String basePackage;
 
-    private String antPah;
+    private String antPath;
 
     private String title = "HTTP API";
 
@@ -40,12 +40,12 @@ public class SwaggerInfo {
         this.basePackage = basePackage;
     }
 
-    public String getAntPah() {
-        return antPah;
+    public String getAntPath() {
+        return antPath;
     }
 
-    public void setAntPah(String antPah) {
-        this.antPah = antPah;
+    public void setAntPath(String antPath) {
+        this.antPath = antPath;
     }
 
     public String getTitle() {

@@ -44,6 +44,7 @@ public class ProductController {
         return result;
     }
 
+    @ApiOperation(value = "查询产品", notes = "根据产品id查询相应的产品详情")
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Product findOne(@PathVariable String id) {
         LOG.info("查询单个产品，id={}", id);
@@ -52,6 +53,7 @@ public class ProductController {
         return product;
     }
 
+    @ApiOperation(value = "查询产品列表", notes = "根据条件查询相应的产品详情列表")
     @RequestMapping(value = "", method = RequestMethod.GET)
     public Page<Product> query(String ids, BigDecimal minRewardRate, BigDecimal maxRewardRate, String status, @RequestParam(defaultValue = "0") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
         LOG.info("查询产品，ids={}, minRewardRate={}, maxRewardRate={}, status={}, pageNum={}, pageSize={}", ids, minRewardRate, maxRewardRate, status, pageNum, pageSize);
