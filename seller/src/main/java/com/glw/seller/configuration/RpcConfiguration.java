@@ -25,7 +25,7 @@ public class RpcConfiguration {
     private static Logger LOG = LoggerFactory.getLogger(RpcConfiguration.class);
 
     @Bean
-    public AutoJsonRpcClientProxyCreator rpcClientProxyCreator(@Value("http://localhost:8999/manager") String url) {
+    public AutoJsonRpcClientProxyCreator rpcClientProxyCreator(@Value("${rpc.manager.url}") String url) {
         AutoJsonRpcClientProxyCreator creator = new AutoJsonRpcClientProxyCreator();
         try {
             creator.setBaseUrl(new URL(url));
