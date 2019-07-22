@@ -1,7 +1,5 @@
 package com.glw.api.domain;
 
-import org.springframework.data.domain.Pageable;
-
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -16,7 +14,6 @@ public class ProductRpcReq {
     private BigDecimal minRewardRate;
     private BigDecimal maxRewardRate;
     private List<String> statusList;
-    private Pageable pageable;
 
     @Override
     public String toString() {
@@ -25,7 +22,6 @@ public class ProductRpcReq {
                 ", minRewardRate=" + minRewardRate +
                 ", maxRewardRate=" + maxRewardRate +
                 ", statusList=" + statusList +
-                ", pageable=" + pageable +
                 '}';
     }
 
@@ -59,13 +55,5 @@ public class ProductRpcReq {
 
     public void setStatusList(List<String> statusList) {
         this.statusList = statusList;
-    }
-
-    public Pageable getPageable() {
-        return pageable;
-    }
-
-    public void setPageable(Pageable pageable) {
-        this.pageable = pageable;
     }
 }

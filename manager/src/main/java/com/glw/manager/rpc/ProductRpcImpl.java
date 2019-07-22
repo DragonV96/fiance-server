@@ -9,7 +9,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @author : glw
@@ -27,11 +32,12 @@ public class ProductRpcImpl implements ProductRpc {
     private ProductService productService;
 
     @Override
-    public Page<Product> query(ProductRpcReq req) {
+    public List<Product> query(ProductRpcReq req) {
         LOG.info("查询多个产品，请求：{}", req);
-        Page<Product> result = productService.query(req.getIdList(), req.getMinRewardRate(), req.getMaxRewardRate(), req.getStatusList(), req.getPageable());
+        Pageable pageable = new PageRequest(0, 1000, Sort.Direction.DESC, "rewardRate");
+        Page<Product> result = productService.query(req.getIdList(), req.getMinRewardRate(), req.getMaxRewardRate(), req.getStatusList(), pageable);
         LOG.info("查询多个产品，结果：{}", result);
-        return result;
+        return result.getContent();
     }
 
     @Override

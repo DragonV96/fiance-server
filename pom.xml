@@ -14,7 +14,7 @@
         <module>entity</module>
         <module>manager</module>
         <module>quartz</module>
-        <module>saller</module>
+        <module>seller</module>
         <module>swagger</module>
         <module>util</module>
     </modules>

@@ -8,9 +8,9 @@ spring:
     show-sql: true    # 打印sql语句
 
 server:
-  port: 8999
   servlet:
     context-path: /manager
+  port: 8999
 
 swagger:
   groupName: manager

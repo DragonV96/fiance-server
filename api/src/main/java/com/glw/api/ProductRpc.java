@@ -3,7 +3,8 @@ package com.glw.api;
 import com.glw.api.domain.ProductRpcReq;
 import com.glw.entity.Product;
 import com.googlecode.jsonrpc4j.JsonRpcService;
-import org.springframework.data.domain.Page;
+
+import java.util.List;
 
 /**
  * @author : glw
@@ -11,7 +12,7 @@ import org.springframework.data.domain.Page;
  * @time : 16:30
  * @Description : 产品相关的rpc服务
  */
-@JsonRpcService("products")
+@JsonRpcService("rpc/products")
 public interface ProductRpc {
 
     /**
@@ -19,7 +20,7 @@ public interface ProductRpc {
      * @param req
      * @return
      */
-    Page<Product> query(ProductRpcReq req);
+    List<Product> query(ProductRpcReq req);
 
     /**
      * 查询单个产品
