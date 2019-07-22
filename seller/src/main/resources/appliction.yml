@@ -1,5 +1,0 @@
-server:
-  context-path: /seller
-  port: 8099
-
-rpc.manager.url: http://localhost:8999/manager/
