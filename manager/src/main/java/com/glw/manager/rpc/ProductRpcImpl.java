@@ -42,9 +42,9 @@ public class ProductRpcImpl implements ProductRpc {
 
     @Override
     public Product findOne(String id) {
-        LOG.info("查询多个产品，请求：{}", id);
+        LOG.info("查询单个产品，请求：{}", id);
         Product result = productService.findOne(id);
-        LOG.info("查询多个产品，结果：{}", result);
-        return null;
+        LOG.info("查询单个产品，结果：{}", result);
+        return result;
     }
 }

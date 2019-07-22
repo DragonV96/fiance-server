@@ -42,8 +42,19 @@ public class ProductRpcService {
         return result;
     }
 
+    /**
+     * 查询全部产品
+     * @return
+     */
+    public Product findOne(String id) {
+        LOG.info("rpc查询单个产品，请求：{}", id);
+        Product result = productRpc.findOne(id);
+        LOG.info("rpc查询单个产品，结果：{}", result);
+        return result;
+    }
+
     @PostConstruct
-    public void testFindAll() {
-        findAll();
+    public void init() {
+        findOne("002");
     }
 }
