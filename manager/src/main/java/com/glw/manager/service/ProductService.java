@@ -3,7 +3,7 @@ package com.glw.manager.service;
 import com.glw.entity.Product;
 import com.glw.entity.enums.ProductStatus;
 import com.glw.manager.error.ErrorEnum;
-import com.glw.manager.repositories.ProductRepository;
+import com.glw.manager.repository.ProductRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

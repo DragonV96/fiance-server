@@ -1,4 +1,4 @@
-package com.glw.manager.repositories;
+package com.glw.manager.repository;
 
 import com.glw.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
