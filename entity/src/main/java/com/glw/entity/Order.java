@@ -28,7 +28,7 @@ public class Order {
     /**
      * @see com.glw.entity.enums.OrderStatus
      */
-    private String oderStatus;
+    private String orderStatus;
     private String outerOrderId;
     private BigDecimal amount;
     private String memo;
@@ -75,12 +75,12 @@ public class Order {
         this.orderType = orderType;
     }
 
-    public String getOderStatus() {
-        return oderStatus;
+    public String getOrderStatus() {
+        return orderStatus;
     }
 
-    public void setOderStatus(String oderStatus) {
-        this.oderStatus = oderStatus;
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public String getOuterOrderId() {
@@ -131,7 +131,7 @@ public class Order {
                 ", productId='" + productId + '\'' +
                 ", chanUserId='" + chanUserId + '\'' +
                 ", orderType='" + orderType + '\'' +
-                ", oderStatus='" + oderStatus + '\'' +
+                ", orderStatus='" + orderStatus + '\'' +
                 ", outerOrderId='" + outerOrderId + '\'' +
                 ", amount=" + amount +
                 ", memo='" + memo + '\'' +
