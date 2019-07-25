@@ -7,3 +7,7 @@ rpc.manager.url: http://localhost:8999/manager
 logging:
   level:
     com.googlecode.jsonrpc4j: debug
+
+spring:
+  cache:
+    type: hazelcast

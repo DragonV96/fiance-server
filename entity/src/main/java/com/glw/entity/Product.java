@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -15,7 +16,8 @@ import java.util.Date;
  * @Description: 产品表
  */
 @Entity
-public class Product {
+public class Product implements Serializable {
+
     @Id
     private String id;
     private String name;
