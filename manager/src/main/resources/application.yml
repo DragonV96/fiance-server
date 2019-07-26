@@ -6,6 +6,10 @@ spring:
     url: jdbc:mysql://localhost:3306/manager?user=root&password=&userUnicode=true&characterEncoding=UTF-8
   jpa:
     show-sql: true    # 打印sql语句
+  activemq:
+    broker-url: tcp://192.168.241.128:61616
+  jms:
+    pub-sub-domain: true    # 发布订阅消息
 
 server:
   servlet:
