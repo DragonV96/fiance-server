@@ -1,6 +1,10 @@
 package com.glw.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -14,7 +18,7 @@ import java.util.Date;
 @Entity(name = "order_t")
 public class Order {
     @Id
-    private String oderId;
+    private String orderId;
     // 渠道id
     private String chanId;
     private String productId;
@@ -32,15 +36,19 @@ public class Order {
     private String outerOrderId;
     private BigDecimal amount;
     private String memo;
+
+    @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date createAt;
+
+    @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date updateAt;
 
-    public String getOderId() {
-        return oderId;
+    public String getOrderId() {
+        return orderId;
     }
 
-    public void setOderId(String oderId) {
-        this.oderId = oderId;
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public String getChanId() {
@@ -126,7 +134,7 @@ public class Order {
     @Override
     public String toString() {
         return "Order{" +
-                "oderId='" + oderId + '\'' +
+                "orderId='" + orderId + '\'' +
                 ", chanId='" + chanId + '\'' +
                 ", productId='" + productId + '\'' +
                 ", chanUserId='" + chanUserId + '\'' +
