@@ -31,7 +31,7 @@ public class RSAUtilTest {
 
     @Test
     public void signTest() {
-        String text = "glw";
+        String text = "{\"amount\":10,\"chanId\":\"111\",\"chanUserId\":\"123\",\"createAt\":\"2019-12-364 11:11:11\",\"memo\":\"rewrwewrwerwe\",\"outerOrderId\":\"10001\",\"productId\":\"002\"}";
         String sign = RSAUtil.sign(text, privateKey);
         System.out.println(sign);
         System.out.println(RSAUtil.verify(text, sign, publicKey));

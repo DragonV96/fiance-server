@@ -1,12 +1,14 @@
 package com.glw.seller.controller;
 
 import com.glw.entity.Order;
+import com.glw.seller.dto.OrderDTO;
 import com.glw.seller.service.OrderService;
 import com.glw.swagger.config.EnableMySwagger;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,13 +30,17 @@ public class OrderController {
 
     /**
      * 下单
-     * @param order
+     * @param authId
+     * @param sign
+     * @param param
      * @return
      */
     @ApiOperation(value = "创建订单", notes = "创建订单")
     @RequestMapping(value = "/apply", method = RequestMethod.POST)
-    public Order apply(@RequestHeader String authId, @RequestHeader String sign, @RequestBody Order order) {
-        LOG.info("申购请求:{}", order);
+    public Order apply(@RequestHeader String authId, @RequestHeader String sign, @RequestBody OrderDTO param) {
+        LOG.info("申购请求:{}", param);
+        Order order = new Order();
+        BeanUtils.copyProperties(param, order);
         order = orderService.apply(order);
         LOG.info("申购结果:{}", order);
         return order;
