@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @time : 17:47
  * @Description : 订单管理
  */
-public interface OrderRepository  extends JpaRepository<Order, String>, JpaSpecificationExecutor<Order> {
+public interface OrderRepository extends JpaRepository<Order, String>, JpaSpecificationExecutor<Order> {
 }
