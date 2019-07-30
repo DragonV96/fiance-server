@@ -24,6 +24,11 @@ public class VerificationOrder {
     private String outerOrderId;
     private BigDecimal amount;
 
+    /**
+     * @see com.glw.entity.enums.OrderType
+     */
+    private String orderType;
+
     @JsonFormat(pattern = "YYYY-MM-DD HH:mm:ss")
     private Date createAt;
 
@@ -83,12 +88,21 @@ public class VerificationOrder {
         this.createAt = createAt;
     }
 
+    public String getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(String orderType) {
+        this.orderType = orderType;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "orderId='" + orderId + '\'' +
                 ", chanId='" + chanId + '\'' +
                 ", productId='" + productId + '\'' +
+                ", orderType='" + orderType + '\'' +
                 ", chanUserId='" + chanUserId + '\'' +
                 ", outerOrderId='" + outerOrderId + '\'' +
                 ", amount=" + amount +
