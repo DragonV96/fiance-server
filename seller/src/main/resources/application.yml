@@ -17,7 +17,10 @@ spring:
     packages:
       trust-all: true     # 所有包下面的对象都可作为事件对象
   datasource:
-    url: jdbc:mysql://localhost:3306/seller?user=root&password=&userUnicode=true&characterEncoding=UTF-8
+    primary:
+      url: jdbc:mysql://localhost:3306/seller?user=root&password=&userUnicode=true&characterEncoding=UTF-8
+    backup:
+      url: jdbc:mysql://localhost:3306/seller_backup?user=root&password=&userUnicode=true&characterEncoding=UTF-8
     jpa:
       show-sql: true    # 打印sql语句
 

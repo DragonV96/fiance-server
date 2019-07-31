@@ -1,5 +1,6 @@
 package com.glw.seller;
 
+import com.glw.seller.repository.OrderRepository;
 import com.glw.seller.service.VerifyService;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -27,6 +28,9 @@ public class VerifyTest {
     @Autowired
     private VerifyService verifyService;
 
+    @Autowired
+    private OrderRepository orderRepository;
+
     @Test
     public void makeVerificationTest() {
         Date day = new GregorianCalendar(2018, 11, 30).getTime();
@@ -44,5 +48,10 @@ public class VerifyTest {
     public void verifyTest() {
         Date day = new GregorianCalendar(2018, 11, 30).getTime();
         System.out.println(String.join(";", verifyService.verifyOrder("111", day)));
+    }
+
+    @Test
+    public void queryOrder(){
+        System.out.println(orderRepository.findAll());
     }
 }

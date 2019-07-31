@@ -2,7 +2,7 @@ package com.glw.seller.service;
 
 import com.glw.entity.VerificationOrder;
 import com.glw.seller.enums.ChanEnum;
-import com.glw.seller.repository.VerifyRepository;
+import com.glw.seller.repositorybackup.VerifyRepository;
 import org.aspectj.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
