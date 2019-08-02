@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.repository.config.RepositoryBeanNamePrefix;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -95,6 +96,12 @@ public class DataAccessConfiguration {
             entityManagerFactoryRef = "primaryEntityManagerFactory",transactionManagerRef = "primaryTransactionManager")
     @Primary
     public class PrimaryConfiguration {
+    }
+
+    @EnableJpaRepositories(basePackageClasses = OrderRepository.class,
+            entityManagerFactoryRef = "backupEntityManagerFactory",transactionManagerRef = "backupTransactionManager")
+    @RepositoryBeanNamePrefix("read")
+    public class ReadConfiguration {
     }
 
     // repository 扫描的时候，并不确定哪个先扫描，查看源代码
